@@ -15,3 +15,7 @@ gradle-app.setting
 .idea/dbnavigator.xml
 .idea/misc.xml
 .idea/uiDesigner.xml
+sandbox/build/reports/tests/test/packages/ru.zzzhvl.faa.sandbox.html
+sandbox/build/reports/tests/test/index.html
+sandbox/build/reports/tests/test/css/style.css
+sandbox/build/reports/tests/test/css/base-style.css
