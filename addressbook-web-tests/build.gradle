@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //TestNg
+    implementation 'com.thegoate:testng:0.15.8.202203291828'
+
+    //Selenium-java
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.3'
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.1.3'
+}
+
+test {
+    //useJUnitPlatform()
+    useTestNG()
+}
