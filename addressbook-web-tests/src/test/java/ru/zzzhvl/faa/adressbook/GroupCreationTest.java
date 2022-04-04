@@ -6,7 +6,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.fail;
 
 public class GroupCreationTest {
@@ -24,27 +23,51 @@ public class GroupCreationTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         driver.get("http://localhost/addressbook/");
+        login("admin", "secret");
+    }
+
+    private void login(String username, String password) {
         driver.findElement(By.name("user")).click();
         driver.findElement(By.name("user")).clear();
-        driver.findElement(By.name("user")).sendKeys("admin");
+        driver.findElement(By.name("user")).sendKeys(username);
         driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys("secret");
+        driver.findElement(By.name("pass")).sendKeys(password);
         driver.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
     @Test
     public void testGroupCreation() throws Exception {
-        driver.findElement(By.linkText("groups")).click();
-        driver.findElement(By.name("new")).click();
+        gotoGroupPage();
+        initGroupCreation();
+        fillGroupForm(new GroupData("test1", "test2", "test3"));
+        submitGroupCreation();
+        returntoGroupPage();
+    }
+
+    private void returntoGroupPage() {
+        driver.findElement(By.linkText("group page")).click();
+    }
+
+    private void submitGroupCreation() {
+        driver.findElement(By.name("submit")).click();
+    }
+
+    private void fillGroupForm(GroupData groupData) {
         driver.findElement(By.name("group_name")).click();
         driver.findElement(By.name("group_name")).clear();
-        driver.findElement(By.name("group_name")).sendKeys("test1");
+        driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
         driver.findElement(By.name("group_header")).clear();
-        driver.findElement(By.name("group_header")).sendKeys("test2");
+        driver.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
         driver.findElement(By.name("group_footer")).clear();
-        driver.findElement(By.name("group_footer")).sendKeys("test3");
-        driver.findElement(By.name("submit")).click();
-        driver.findElement(By.linkText("group page")).click();
+        driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+    }
+
+    private void initGroupCreation() {
+        driver.findElement(By.name("new")).click();
+    }
+
+    private void gotoGroupPage() {
+        driver.findElement(By.linkText("groups")).click();
     }
 
     @AfterClass(alwaysRun = true)
