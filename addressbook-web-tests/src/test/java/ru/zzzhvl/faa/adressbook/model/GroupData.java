@@ -1,4 +1,4 @@
-package ru.zzzhvl.faa.adressbook;
+package ru.zzzhvl.faa.adressbook.model;
 
 public class GroupData {
     private final String name;
