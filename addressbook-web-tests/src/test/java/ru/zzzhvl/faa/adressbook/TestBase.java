@@ -4,11 +4,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.fail;
 
-public class GroupCreationTest {
+public class TestBase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -35,24 +34,15 @@ public class GroupCreationTest {
         driver.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
-    @Test
-    public void testGroupCreation() throws Exception {
-        gotoGroupPage();
-        initGroupCreation();
-        fillGroupForm(new GroupData("test1", "test2", "test3"));
-        submitGroupCreation();
-        returntoGroupPage();
-    }
-
-    private void returntoGroupPage() {
+    protected void returntoGroupPage() {
         driver.findElement(By.linkText("group page")).click();
     }
 
-    private void submitGroupCreation() {
+    protected void submitGroupCreation() {
         driver.findElement(By.name("submit")).click();
     }
 
-    private void fillGroupForm(GroupData groupData) {
+    protected void fillGroupForm(GroupData groupData) {
         driver.findElement(By.name("group_name")).click();
         driver.findElement(By.name("group_name")).clear();
         driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
@@ -62,11 +52,11 @@ public class GroupCreationTest {
         driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
-    private void initGroupCreation() {
+    protected void initGroupCreation() {
         driver.findElement(By.name("new")).click();
     }
 
-    private void gotoGroupPage() {
+    protected void gotoGroupPage() {
         driver.findElement(By.linkText("groups")).click();
     }
 
@@ -110,5 +100,13 @@ public class GroupCreationTest {
         } finally {
             acceptNextAlert = true;
         }
+    }
+
+    protected void deleteSelectedGroups() {
+        driver.findElement(By.name("delete")).click();
+    }
+
+    protected void selectGroup() {
+        driver.findElement(By.name("selected[]")).click();
     }
 }
