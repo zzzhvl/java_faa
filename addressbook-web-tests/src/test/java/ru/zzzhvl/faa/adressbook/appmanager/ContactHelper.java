@@ -18,6 +18,10 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
+    public void editContact() {
+        click(By.xpath("//img[@alt='Edit']"));
+    }
+
     public void confirmAddition() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
@@ -40,5 +44,9 @@ public class ContactHelper extends HelperBase {
 
     public void confirmContactDeletion(){
         allertAccept();
+    }
+
+    public void confirmModification() {
+        click(By.xpath("//div[@id='content']/form/input[22]"));
     }
 }
