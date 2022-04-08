@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.zzzhvl.faa.sandbox.EquationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-04-08T17:04:10" hostname="ZZZHVL" time="0.032">
+  <properties/>
+  <testcase name="test0" classname="ru.zzzhvl.faa.sandbox.EquationTest" time="0.025"/>
+  <testcase name="test1" classname="ru.zzzhvl.faa.sandbox.EquationTest" time="0.001"/>
+  <testcase name="test2" classname="ru.zzzhvl.faa.sandbox.EquationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
