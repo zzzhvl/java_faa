@@ -5,38 +5,36 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.openqa.selenium.remote.BrowserType.*;
 import static org.testng.Assert.fail;
 
 public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
-    private SessionHelper sessionHelper;
     private ContactHelper contactHelper;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
+    private final boolean acceptNextAlert = true;
+    private final StringBuffer verificationErrors = new StringBuffer();
     private JavascriptExecutor js;
     private WebDriver driver;
-    private String browser;
+    private final String browser;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
     }
 
     public void init() {
-        if (browser == BrowserType.CHROME) {
+        if (browser.equals(CHROME)) {
             driver = new ChromeDriver();
-        } else if (browser == BrowserType.FIREFOX) {
+        } else if (browser.equals(FIREFOX)) {
             driver = new FirefoxDriver();
-        } else {
+        } else if (browser.equals(EDGE)) {
             driver = new EdgeDriver();
         }
 
-        baseUrl = "https://www.google.com/";
+        String baseUrl = "https://www.google.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         driver.get("http://localhost/addressbook/");
@@ -44,7 +42,7 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         contactHelper = new ContactHelper(driver);
-        sessionHelper = new SessionHelper(driver);
+        SessionHelper sessionHelper = new SessionHelper(driver);
         sessionHelper.login("admin", "secret");
     }
 
