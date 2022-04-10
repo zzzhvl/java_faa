@@ -35,7 +35,7 @@ public class ApplicationManager {
         }
 
         String baseUrl = "https://www.google.com/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         driver.get("http://localhost/addressbook/");
 

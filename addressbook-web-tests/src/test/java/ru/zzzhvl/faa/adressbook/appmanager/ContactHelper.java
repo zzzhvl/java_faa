@@ -2,7 +2,11 @@ package ru.zzzhvl.faa.adressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.zzzhvl.faa.adressbook.model.ContactData;
+
+import static ru.zzzhvl.faa.adressbook.model.ContactData.getGroup;
 
 public class ContactHelper extends HelperBase {
 
@@ -14,7 +18,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
-    public void addNewContact()  {
+    public void addNewContact() {
         click(By.linkText("add new"));
     }
 
@@ -26,12 +30,16 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("address"), contactData.getAddress());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
+
+        if (creation) {
+            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(getGroup());
+        } else Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
 
     public void selectContact() {
@@ -42,7 +50,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void confirmContactDeletion(){
+    public void confirmContactDeletion() {
         allertAccept();
     }
 
