@@ -58,3 +58,6 @@ addressbook-web-tests/build/reports/tests/test/classes/ru.zzzhvl.faa.adressbook.
 addressbook-web-tests/build/test-results/test/TEST-ru.zzzhvl.faa.adressbook.tests.ContactDeleteTest.xml
 addressbook-web-tests/build/test-results/test/binary/output.bin.idx
 *.html
+sandbox/build/tmp/compileJava/previous-compilation-data.bin
+*.bin
+*.xml
