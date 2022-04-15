@@ -61,3 +61,4 @@ addressbook-web-tests/build/test-results/test/binary/output.bin.idx
 sandbox/build/tmp/compileJava/previous-compilation-data.bin
 *.bin
 *.xml
+*.bin
