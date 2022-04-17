@@ -3,7 +3,7 @@ package ru.zzzhvl.faa.adressbook.tests;
 import org.testng.annotations.Test;
 import ru.zzzhvl.faa.adressbook.model.GroupData;
 
-public class GroupDeleteTest extends TestBase {
+public class GroupDeleteTests extends TestBase {
 
     @Test
     public void testDeleteGroup() throws Exception {

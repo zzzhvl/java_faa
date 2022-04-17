@@ -3,7 +3,7 @@ package ru.zzzhvl.faa.adressbook.tests;
 import org.testng.annotations.Test;
 import ru.zzzhvl.faa.adressbook.model.GroupData;
 
-public class GroupCreateTest extends TestBase {
+public class GroupCreateTests extends TestBase {
 
     @Test
     public void testGroupCreate() throws Exception {

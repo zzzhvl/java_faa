@@ -3,7 +3,7 @@ package ru.zzzhvl.faa.adressbook.tests;
 import org.testng.annotations.Test;
 import ru.zzzhvl.faa.adressbook.model.GroupData;
 
-public class GroupModificationTest extends TestBase {
+public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupModification(){

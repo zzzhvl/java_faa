@@ -3,7 +3,7 @@ package ru.zzzhvl.faa.adressbook.tests;
 import org.testng.annotations.Test;
 import ru.zzzhvl.faa.adressbook.model.ContactData;
 
-public class ContactCreateTest extends TestBase {
+public class ContactCreateTests extends TestBase {
 
     @Test
     public void testContactCreate(){
