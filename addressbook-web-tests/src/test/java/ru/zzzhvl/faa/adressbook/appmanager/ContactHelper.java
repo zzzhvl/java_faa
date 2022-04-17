@@ -42,8 +42,8 @@ public class ContactHelper extends HelperBase {
         } else Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteContact() {
