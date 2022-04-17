@@ -62,3 +62,4 @@ sandbox/build/tmp/compileJava/previous-compilation-data.bin
 *.bin
 *.xml
 *.bin
+*.idx
