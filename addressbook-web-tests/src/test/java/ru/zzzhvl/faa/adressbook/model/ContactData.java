@@ -1,5 +1,7 @@
 package ru.zzzhvl.faa.adressbook.model;
 
+import java.util.Objects;
+
 public class ContactData {
     private final String firstname;
     private final String lastname;
@@ -56,8 +58,8 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
-        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+        if (!Objects.equals(firstname, that.firstname)) return false;
+        return Objects.equals(lastname, that.lastname);
     }
 
     @Override

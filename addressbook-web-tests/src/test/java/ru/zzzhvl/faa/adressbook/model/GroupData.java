@@ -1,5 +1,7 @@
 package ru.zzzhvl.faa.adressbook.model;
 
+import java.util.Objects;
+
 public class GroupData {
     private final String name;
     private final String header;
@@ -12,7 +14,7 @@ public class GroupData {
 
         GroupData groupData = (GroupData) o;
 
-        return name != null ? name.equals(groupData.name) : groupData.name == null;
+        return Objects.equals(name, groupData.name);
     }
 
     @Override
